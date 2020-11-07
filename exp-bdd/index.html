@@ -1,0 +1,577 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
+    
+    
+      
+        <title>Base de données - BDWOD</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.358818c7.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.f0267088.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#experimentations-en-base-de-donnees" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="BDWOD" class="md-header-nav__button md-logo" aria-label="BDWOD">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89"><path d="M3.136 17.387v42.932l42.932 21.467L3.136 17.387z"/><path d="M21.91 8l42.933 64.398-18.775 9.388L3.136 17.387 21.91 8z" fill-opacity=".5"/><path d="M67.535 17.387L40.273 35.543l21.878 32.818 5.384 2.691V17.387z"/><path d="M67.535 17.387v53.666l18.774-9.388V8l-18.774 9.387z" fill-opacity=".25"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            BDWOD
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Base de données
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/louisonsarlinmagnus/BDWOD/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Projet BDWOD
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="BDWOD" class="md-nav__button md-logo" aria-label="BDWOD">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89"><path d="M3.136 17.387v42.932l42.932 21.467L3.136 17.387z"/><path d="M21.91 8l42.933 64.398-18.775 9.388L3.136 17.387 21.91 8z" fill-opacity=".5"/><path d="M67.535 17.387L40.273 35.543l21.878 32.818 5.384 2.691V17.387z"/><path d="M67.535 17.387v53.666l18.774-9.388V8l-18.774 9.387z" fill-opacity=".25"/></svg>
+
+    </a>
+    BDWOD
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/louisonsarlinmagnus/BDWOD/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Projet BDWOD
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Accueil
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../besoin/" class="md-nav__link">
+      Analyse du besoin
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Approche technique
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Approche technique" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Approche technique
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bddsql/" class="md-nav__link">
+      Base de donnée SQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bddjson/" class="md-nav__link">
+      Base de donnée JSON
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../glossaire/" class="md-nav__link">
+      Glossaire
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Experimentations
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Experimentations" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Experimentations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Base de données
+    </a>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../help/" class="md-nav__link">
+      Liens et outils
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/louisonsarlinmagnus/BDWOD/edit/master/docs/exp-bdd.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="experimentations-en-base-de-donnees">Expérimentations en base de données</h1>
+<p>En utilisant une base de données bien plus simple (figure Y.1.5) pour faire des tests j'ai pu me rendre compte de certain problèmes dans notre base (qui seront réglés plus tard).<br />
+Ça m'a aussi permis de comprendre plusieurs choses expliquées dans la suite.</p>
+<p><center>
+<br />
+<figure>
+    <img src="https://i.imgur.com/yidJKKM.png"
+    width="800"
+    >
+    <figcaption><i>Figure Y.1.5: Base de données de cuisine</i></figcaption>
+  </figure></p>
+<p></center>  </p>
+<p>Pour créer cette base de données il faut le script suivant:</p>
+<div class="highlight"><pre><span></span><code>  <span class="k">DROP</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">EXISTS</span> <span class="ss">&quot;Ingredient&quot;</span> <span class="p">;</span>
+  <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="ss">&quot;Ingredient&quot;</span> <span class="p">(</span>
+    <span class="ss">&quot;id&quot;</span> <span class="nb">INTEGER</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTOINCREMENT</span><span class="p">,</span>
+    <span class="ss">&quot;Nom_Ingredient&quot;</span> <span class="nb">TEXT</span> <span class="k">UNIQUE</span>
+  <span class="p">);</span>
+
+  <span class="k">DROP</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">EXISTS</span> <span class="ss">&quot;Recette&quot;</span><span class="p">;</span>
+  <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="ss">&quot;Recette&quot;</span> <span class="p">(</span>
+    <span class="ss">&quot;id&quot;</span> <span class="nb">INTEGER</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTOINCREMENT</span><span class="p">,</span>
+    <span class="ss">&quot;Nom_Recette&quot;</span> <span class="nb">TEXT</span> <span class="k">UNIQUE</span>
+  <span class="p">);</span>
+
+  <span class="k">DROP</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">EXISTS</span> <span class="ss">&quot;Constitue&quot;</span><span class="p">;</span>
+  <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="ss">&quot;Constitue&quot;</span> <span class="p">(</span>
+    <span class="ss">&quot;Recette_id&quot;</span> <span class="nb">INTEGER</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="ss">&quot;Ingredient_id&quot;</span>  <span class="nb">INTEGER</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">Recette_id</span><span class="p">)</span>
+      <span class="k">REFERENCES</span> <span class="n">Recette</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span>
+        <span class="k">ON</span> <span class="k">DELETE</span> <span class="k">CASCADE</span>
+        <span class="k">ON</span> <span class="k">UPDATE</span> <span class="k">NO</span> <span class="n">ACTION</span><span class="p">,</span>
+
+    <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">Ingredient_id</span><span class="p">)</span>
+      <span class="k">REFERENCES</span> <span class="n">Ingredient</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span>
+        <span class="k">ON</span> <span class="k">DELETE</span> <span class="k">CASCADE</span>
+        <span class="k">ON</span> <span class="k">UPDATE</span> <span class="k">NO</span> <span class="n">ACTION</span>
+  <span class="p">);</span>
+</code></pre></div>
+<p>On remarque déjà que nous avons omis la contrainte <code>UNIQUE</code> pour certain attributs qui permettent d'éviter les doublons.</p>
+<p>Ensuite nous avons simplement ajouter <em>a la main</em> des ingrédients avec le script suivant:</p>
+<div class="highlight"><pre><span></span><code>  <span class="k">INSERT</span> <span class="k">OR</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="n">Ingredient</span><span class="p">(</span><span class="n">Nom_Ingredient</span><span class="p">)</span>
+  <span class="k">VALUES</span> <span class="p">(</span><span class="ss">&quot;Oeuf&quot;</span><span class="p">);</span>
+
+  <span class="k">INSERT</span> <span class="k">OR</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="n">Ingredient</span><span class="p">(</span><span class="n">Nom_Ingredient</span><span class="p">)</span>
+  <span class="k">VALUES</span> <span class="p">(</span><span class="ss">&quot;Farine&quot;</span><span class="p">);</span>
+
+  <span class="k">INSERT</span> <span class="k">OR</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="n">Ingredient</span><span class="p">(</span><span class="n">Nom_Ingredient</span><span class="p">)</span>
+  <span class="k">VALUES</span> <span class="p">(</span><span class="ss">&quot;Beurre&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p>Puis c'est le tour d'une recette:</p>
+<div class="highlight"><pre><span></span><code>  <span class="k">INSERT</span> <span class="k">OR</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="n">Recette</span><span class="p">(</span><span class="n">Nom_Recette</span><span class="p">)</span>
+  <span class="k">VALUES</span> <span class="p">(</span><span class="ss">&quot;Pâte a crêpes&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p>A cette étape nous avons plusieurs ingrédients a notre disposition et une recette mais il n'y a aucun lien entre eux.</p>
+<p>En effet le lien se fera via la table <code>Constitue</code>. Cette table permet de stocker le lien entre un recette et des ingrédients. Pour créer ces liens entre recette et ingrédients nous avons donc besoin du script suivant:</p>
+<div class="highlight"><pre><span></span><code>  <span class="k">INSERT</span> <span class="k">OR</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="n">Constitue</span><span class="p">(</span><span class="n">Recette_id</span><span class="p">,</span><span class="n">Ingredient_id</span><span class="p">)</span>
+  <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+
+  <span class="k">INSERT</span> <span class="k">OR</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="n">Constitue</span><span class="p">(</span><span class="n">Recette_id</span><span class="p">,</span><span class="n">Ingredient_id</span><span class="p">)</span>
+  <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+
+  <span class="k">INSERT</span> <span class="k">OR</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="n">Constitue</span><span class="p">(</span><span class="n">Recette_id</span><span class="p">,</span><span class="n">Ingredient_id</span><span class="p">)</span>
+  <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+</code></pre></div>
+<p>Via ce script on viens de faire le lien entre la recette portant l'id <strong>1</strong> et les ingrédients portant les ids <strong>1</strong>, <strong>2</strong> et <strong>3</strong>. On rappelle que les ids sont créés automatiquement et ne peuvent pas être modifié, ce qui renforce la sécurité de notre base de donnée tout en évitant encore les doublons.</p>
+<p>Je concède que pour l'instant on ne voit pas bien le lien qu'on a créer. Pour le visualiser plus simplement on peut exécuter le script suivant:</p>
+<div class="highlight"><pre><span></span><code>  <span class="k">SELECT</span> <span class="n">Nom_Recette</span><span class="p">,</span> <span class="n">Nom_Incrédient</span> 
+  <span class="k">FROM</span> <span class="n">Constitue</span>
+  <span class="k">JOIN</span> <span class="n">Recette</span>
+  <span class="k">ON</span> <span class="n">Constitue</span><span class="p">.</span><span class="n">Recette_id</span><span class="o">=</span><span class="n">Recette</span><span class="p">.</span><span class="n">id</span>
+  <span class="k">JOIN</span> <span class="n">Ingredient</span>
+  <span class="k">ON</span> <span class="n">Constitue</span><span class="p">.</span><span class="n">Ingredient_id</span><span class="o">=</span><span class="n">Ingredient</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+</code></pre></div>
+<p>Si on le décrypte on trouve:</p>
+<ol>
+<li>On affiche les colonnes <code>Nom_Recette</code> et <code>Nom_Ingredient</code></li>
+<li>Venant de la table <code>Constitue</code></li>
+<li>On accole la table <code>Recette</code></li>
+<li>Où la colonne <code>Constitue.Recette_id</code> est égale à la colonne <code>Recette.id</code></li>
+<li>On accole la table <code>Ingredient</code></li>
+<li>Où la colonne <code>Constitue.Ingredient_id</code> est égale à la colonne <code>Ingredient.id</code></li>
+</ol>
+<p>Via les <code>JOIN</code> on fait donc les liens entre des tables. Pour notre sujet il nous faudra donc littéralement moult <code>JOIN</code>.</p>
+<p>On remarque aussi qu'il faudrait rajouter un argument pour les Exercices dans un Entrainement. En effet de la manière dont la base a été faite il n'est pas possible de trier les exercices d'un entraînement.</p>
+<p>On en déduit des scripts précédents que pour l'ajout d'une nouvelle recette nous pourrons enchaîner des <code>INSERT</code> si la <code>VALUES</code> n'existe pas encore dans la table.</p>
+<p>Tentons d'écrire un seul script qui puisse nous permettre :</p>
+<ul>
+<li>D'ajouter une recette du nom de <em>"Gâteau a la vanille"</em>  </li>
+<li>Créer les <code>VALUES</code> nécessaires <strong>SI ELLE N'EXISTENT PAS</strong>  </li>
+<li>Créer les liens entre la recette et les ingrédients dans la Table <code>constitue</code><br />
+On prendra en recette de ce gâteau uniquement de l’œuf et de la vanille.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span> <span class="k">OR</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="n">Ingredient</span><span class="p">(</span><span class="n">Nom_Ingredient</span><span class="p">)</span>
+  <span class="k">VALUES</span> <span class="p">(</span><span class="ss">&quot;Oeuf&quot;</span><span class="p">);</span>
+
+  <span class="k">INSERT</span> <span class="k">OR</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="n">Ingredient</span><span class="p">(</span><span class="n">Nom_Ingredient</span><span class="p">)</span>
+  <span class="k">VALUES</span> <span class="p">(</span><span class="ss">&quot;Vanille&quot;</span><span class="p">);</span>
+
+  <span class="k">INSERT</span> <span class="k">OR</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="n">Recette</span><span class="p">(</span><span class="n">Nom_Recette</span><span class="p">)</span>
+  <span class="k">VALUES</span> <span class="p">(</span><span class="ss">&quot;Gâteau à la Vanille&quot;</span><span class="p">);</span>
+
+  <span class="k">INSERT</span> <span class="k">OR</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="n">Constitue</span><span class="p">(</span><span class="n">Recette_id</span><span class="p">,</span> <span class="n">Ingredient_id</span><span class="p">)</span>
+  <span class="k">VALUES</span><span class="p">(</span>
+    <span class="p">(</span><span class="k">SELECT</span> <span class="n">Recette</span><span class="p">.</span><span class="n">id</span> <span class="k">FROM</span> <span class="n">Recette</span> <span class="k">WHERE</span> <span class="n">Recette</span><span class="p">.</span><span class="n">Nom_Recette</span> <span class="k">LIKE</span> <span class="ss">&quot;Gâteau à la Vanille&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="k">SELECT</span> <span class="n">id</span> <span class="k">FROM</span> <span class="n">Ingredient</span> <span class="k">WHERE</span> <span class="n">Ingredient</span><span class="p">.</span><span class="n">Nom_Ingredient</span> <span class="k">LIKE</span> <span class="ss">&quot;Oeuf&quot;</span><span class="p">)</span>
+  <span class="p">);</span>
+
+  <span class="k">INSERT</span> <span class="k">OR</span> <span class="k">IGNORE</span> <span class="k">INTO</span> <span class="n">Constitue</span><span class="p">(</span><span class="n">Recette_id</span><span class="p">,</span> <span class="n">Ingredient_id</span><span class="p">)</span>
+  <span class="k">VALUES</span><span class="p">(</span>
+    <span class="p">(</span><span class="k">SELECT</span> <span class="n">Recette</span><span class="p">.</span><span class="n">id</span> <span class="k">FROM</span> <span class="n">Recette</span> <span class="k">WHERE</span> <span class="n">Recette</span><span class="p">.</span><span class="n">Nom_Recette</span> <span class="k">LIKE</span> <span class="ss">&quot;Gâteau à la Vanille&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="k">SELECT</span> <span class="n">id</span> <span class="k">FROM</span> <span class="n">Ingredient</span> <span class="k">WHERE</span> <span class="n">Ingredient</span><span class="p">.</span><span class="n">Nom_Ingredient</span> <span class="k">LIKE</span> <span class="ss">&quot;Vanille&quot;</span><span class="p">)</span>
+  <span class="p">);</span>
+</code></pre></div>
+<p>Or on remarque bien qu'il est possible d’exécuter plusieurs fois ce script et on obtient une multitude d'enregistrement identique. Il faudra donc créer un index qui permettra d'ignorer l'ajout si la ligne existe déjà:</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">UNIQUE</span> <span class="ss">&quot;DoubleConstitue&quot;</span> <span class="k">ON</span> <span class="ss">&quot;Constitue&quot;</span> <span class="p">(</span>
+  <span class="ss">&quot;Recette_id&quot;</span>
+  <span class="ss">&quot;Ingredient_id&quot;</span>
+<span class="p">);</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../glossaire/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Glossaire
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../help/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Liens et outils
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; 2020 Louison SARLIN--MAGNUS
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.fd16492e.min.js"></script>
+      <script src="../assets/javascripts/bundle.7836ba4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../search/main.js"></script>
+      
+    
+  </body>
+</html>

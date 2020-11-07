@@ -21,9 +21,6 @@ theme:
   highlightjs: true
 
   language: en
-  features:
-    - navigation.tabs
-    #- navigation.instant
   palette:
     scheme: default
     primary: indigo

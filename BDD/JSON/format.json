@@ -1,0 +1,161 @@
+{
+	"Entrainement" : {
+		"nom" : "" ,
+		"date" : "" ,
+		"lieu" : "" ,
+		"commentaire" : "",
+		"Exercice" : 
+		[
+			{
+				"nom" : "" ,
+				"type" : "",
+				"cashin" : "" ,
+				"temps" : 0 ,
+				"evolution_reps" : "" ,
+				"nombre_tours" : 1 ,
+				"time_cap" : 900 ,
+				"durée_intervalle" : 1 ,
+				"plusieur_mvt_par_intervalle" : false ,
+				"mouvement_alterné" : true ,
+				"temps_travail" : 20,
+				"temps_repos" : 10,
+				"cash-out" : "",
+				"mouvement" : 
+				[
+					{
+						"nom" : "" ,
+						"nbr_reps" : 1 ,
+						"poids" : 0 ,
+						"distance" : 0 ,
+						"hauteur" : 0,
+						"temps" : 0,
+					},
+				],
+			},
+		],
+	},
+
+	"Entrainement" : { //Avec com
+		"nom" : "" ,
+		"date" : "" ,
+		"lieu" : "" ,
+		"commentaire" : "",
+		"Exercice" : 
+		[
+			{
+				"nom" : "" , //TOUS
+				"type" : "", //AMRAP, For Time, EMOM, Tabata ou Death By
+				"cash-in" : "" , //For Time ET AMRAP
+				"temps" : 0 , //AMRAP ET EMOM ET Tabata
+				"evolution_reps" : "" , //Death By ET AMRAP ET EMOM
+				"nombre_tours" : 1 , //For Time ET EMOM ET Tabata
+				"time_cap" : 900 , //For Time
+				"intervalle" : 1 , //EMOM
+				"plusieur_mvt_par_intervalle" : false , //EMOM
+				"mouvement_alterné" : true , //Tabata ET EMOM
+				"temps_travail" : 20, //Tabata
+				"temps_repose" : 10, //Tabata
+				"cash-out" : "", //For Time ET AMRAP
+				"mouvement" : 
+				[
+					{
+						"nom" : "" , //TOUS
+						"nbr_reps" : 1 , //AMRAP ET For Time ET EMOM
+						"poids" : 0 , //TOUS
+						"distance" : 0 , //AMRAP ET For Time ET EMOM
+						"hauteur" : 0, //TOUS
+						"temps" : 0 , //AMRAP ET For Time ET EMOM
+					},
+				],
+			},
+		],
+	},
+
+	"Exercice" : 
+	[
+		{
+			"nom" : "" , //TOUS
+			"type" : "", //AMRAP, For Time, EMOM, Tabata ou Death By
+			"cash-in" : "" , //For Time ET AMRAP
+			"temps" : 900 , //AMRAP ET EMOM ET Tabata
+			"evolution_reps" : "" , //Death By ET AMRAP ET EMOM
+			"nombre_tours" : 1 , //For Time ET EMOM ET Tabata
+			"time_cap" : 900 , //For Time
+			"intervalle" : 1 , //EMOM
+			"plusieur_mvt_par_intervalle" : true , //EMOM
+			"mouvement_alterné" : true , //Tabata ET EMOM
+			"temps_travail" : 20, //Tabata
+			"temps_repose" : 10, //Tabata
+			"mouvement" : "",
+			"cash-out" : "", //For Time ET AMRAP
+		},
+	],
+
+	"mouvement" : 
+	[
+		{
+			"nom" : "" , //TOUS
+			"nbr_reps" : 10 , //AMRAP ET For Time ET EMOM
+			"poids" : 0 , //TOUS
+			"distance" : 0 , //AMRAP ET For Time ET EMOM
+			"hauteur" : 0, //TOUS
+			"temps" : 0 , //AMRAP ET For Time ET EMOM
+		},
+	],
+
+	"AMRAP" : {
+		"cash-in" : "" ,
+		"temps" : 900 ,
+		"mouvement" : {
+			"nom" : "" ,
+			"nbr_reps" : 1 ,
+			"poids" : 0 ,
+			"distance" : 0 ,
+			"hauteur" : 0,
+			"temps" : 0 ,
+		},
+		"cash-out" : ""
+	},
+
+	"For Time" : {
+		"cash-in" : "" ,
+		"reps" : "" ,
+		"nombre_tours" : 1 ,
+		"time_cap" : 900 ,
+		"mouvement" : {
+			"nom" : "" ,
+			"nbr_reps" : 1 ,
+			"poids" : 0 ,
+			"distance" : 0 ,
+			"hauteur" : 0,
+			"temps" : 0 ,
+		},
+		"cash-out" : ""
+	},
+
+	"EMOM" : {
+		"intervalle" : 1 ,
+		"temps" : 900 ,
+		"nombre_mvt_par_intervalle" : 1 ,
+		"mouvement_alterné" : true ,
+		"mouvement" : {
+			"nom" : "" ,
+			"nbr_reps" : 1 ,
+			"poids" : 0 ,
+			"distance" : 0 ,
+			"hauteur" : 0,
+			"temps" : 0 ,
+		},
+	},
+
+	"TABATA" : {
+		"temps_travail" : 20,
+		"temps_repos" : 10,
+		"mouvement_alterné" : false ,
+		"mouvement" : {
+			"nom" : "" ,
+			"poids" : 0 ,
+			"hauteur" : 0,
+		},
+	},	
+}

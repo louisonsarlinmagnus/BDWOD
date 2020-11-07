@@ -1,0 +1,66 @@
+site_name: BDWOD
+
+# Repository
+repo_name: Projet BDWOD
+repo_url: https://github.com/louisonsarlinmagnus/BDWOD
+
+nav:
+  - Accueil: index.md
+  - Analyse du besoin: besoin.md
+  - Approche technique:
+    - Base de donnée SQL: bddsql.md
+    - Base de donnée JSON: bddjson.md
+  - Glossaire: glossaire.md
+  - Experimentations:
+    - Base de données: exp-bdd.md
+  - Liens et outils: help.md
+
+theme: 
+  name: null
+  custom_dir: docs/material
+  highlightjs: true
+
+  language: en
+  features:
+    - navigation.tabs
+    #- navigation.instant
+  palette:
+    scheme: default
+    primary: indigo
+    accent: indigo
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
+
+markdown_extensions:
+  - codehilite:
+      linenums: true
+  - admonition
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed
+  - pymdownx.tilde
+
+extra_javascript: 
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+
+
+copyright: '&copy; 2020 Louison SARLIN--MAGNUS'
